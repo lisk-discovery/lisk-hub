@@ -173,6 +173,16 @@ const ss = {
   walletOnboardingClose: '.wallet-onboarding .banner-close',
   requestDropdown: '.request-dropdown',
   termsOfUse: '.accept-terms',
+  filterTransactionsBtn: '.filterTransactions',
+  dateFromInput: '.dateFromInput',
+  dateToInput: '.dateToInput',
+  amountFromInput: '.amountFromInput',
+  amountToInput: '.amountToInput',
+  messageField: '.message-field span',
+  applyFilters: '.saveButton',
+  filterBar: '.filterBar',
+  filter: '.filter',
+  clearFilterBtn: '.clear-filter',
 };
 
 export default ss;

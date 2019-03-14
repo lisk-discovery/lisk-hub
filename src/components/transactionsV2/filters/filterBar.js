@@ -31,11 +31,11 @@ const FilterBar = props => (
 
       return (
         <div
-          className={`${styles.filter}`}
+          className={`${styles.filter} filter`}
           key={filter + index}>
             <p className={styles.label}>{label}</p>
             <span
-              className={styles.clearBtn}
+              className={`${styles.clearBtn} clear-filter`}
               onClick={() => props.clearFilter(filter)} />
         </div>);
       })
