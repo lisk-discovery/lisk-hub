@@ -1,5 +1,5 @@
-import React from 'react'
-import LiskHubExtensions from 'liskHubExtensions';
+import React from 'react';
+import LiskHubExtensions from 'LiskHubExtensions';
 //import LiskHubExtensions from '../../../utils/liskHubExtensions';
 
 const Box = LiskHubExtensions.components.Box;
