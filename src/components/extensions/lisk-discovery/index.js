@@ -16,7 +16,7 @@ class LiskDiscovery extends React.Component {
   render() {
     return (
       <Box>
-        <h1>hello world</h1>
+        <h1>hello LiskHubExtensions</h1>
       </Box>
     );
   }
