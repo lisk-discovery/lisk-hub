@@ -51,6 +51,7 @@
     "@ledgerhq/hw-transport-node-hid": "4.33.3",
     "@ledgerhq/hw-transport-u2f": "4.32.0",
     "await-to-js": "2.1.1",
+    "axios": "0.18.0",
     "bignumber.js": "8.0.1",
     "bitcore-mnemonic": "1.7.0",
     "body-parser": "1.18.3",

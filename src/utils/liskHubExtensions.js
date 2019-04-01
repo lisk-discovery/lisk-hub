@@ -9,6 +9,7 @@ const LiskHubExtensions = {
     dashboardColumn1: 'dashboard-column-1',
     dashboardColumn2: 'dashboard-column-2',
     dashboardColumn3: 'dashboard-column-3',
+    delegateTab: 'delegate-tab',
     // TODO define and use further extension points
   },
   components: {
