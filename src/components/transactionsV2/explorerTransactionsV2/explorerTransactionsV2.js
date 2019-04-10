@@ -55,18 +55,18 @@ class ExplorerTransactionsV2 extends React.Component {
       value: txFilters.all,
     });
 
-    this.getExtensions();
+    this.getExtensions(this.props.address);
   }
 
-  async getExtensions(){
+  async getExtensions(address){
     const identifier = LiskHubExtensions.identifiers.delegateTab;
-    const extensions = (await extension({ identifier })) || null;
+    const extensions = (await extension({ identifier, address })) || null;
     this.setState({ extensions });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.modules !== nextProps.modules){
-      this.getExtensions();
+    if (this.props.delegate !== nextProps.delegate){
+      this.getExtensions(this.props.address);
     }
   }
 

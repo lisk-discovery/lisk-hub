@@ -18,12 +18,12 @@ import {
 import LiskHubExtensions from '../../utils/liskHubExtensions';
 
 
-const extension = async ({ identifier }) => {
+const extension = async ({ identifier, address }) => {
 
   const state = await store.getState();
   const modules = state.extensions.modules[identifier] || [];
 
-  return modules.map(({ moduleId }, i) => {
+  const children = modules.map(({ moduleId }, i) => {
     const Component = LiskHubExtensions._modules[moduleId];
     if (Component) {
       return <Component
@@ -33,6 +33,7 @@ const extension = async ({ identifier }) => {
           time: state.test,
           accountAddress: state.account && state.account.address,
           search: state.search,
+          address
         }}
         actions={{
           testExtensions,
@@ -55,6 +56,7 @@ const extension = async ({ identifier }) => {
     console.error(new Error(`Invalid component in extension point ${state.identifier}`));
     return null;
   });
+  return children;
 };
 
 export default extension;
