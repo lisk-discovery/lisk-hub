@@ -5,8 +5,10 @@ import routes from '../../../constants/routes';
 import TabsContainer from '../../toolbox/tabsContainer/tabsContainer';
 import WalletTab from '../../wallet/walletTab';
 import DelegateTab from '../../delegate/delegateTab';
-import ProjectTab from '../../projects/projectTab';
+
 import VotesTab from '../../votes/votesTab';
+import LiskHubExtensions from '../../../utils/liskHubExtensions';
+import extension  from '../../extensionPoint/extension';
 
 class ExplorerTransactionsV2 extends React.Component {
   // eslint-disable-next-line max-statements
@@ -35,7 +37,7 @@ class ExplorerTransactionsV2 extends React.Component {
     this.updateCustomFilters = this.updateCustomFilters.bind(this);
   }
 
-  onInit() {
+  async onInit() {
     this.props.loadLastTransaction(this.props.address);
 
     this.props.searchAccount({
@@ -52,6 +54,20 @@ class ExplorerTransactionsV2 extends React.Component {
       filterName: 'transactions',
       value: txFilters.all,
     });
+
+    this.getExtensions();
+  }
+
+  async getExtensions(){
+    const identifier = LiskHubExtensions.identifiers.delegateTab;
+    const extensions = (await extension({ identifier })) || null;
+    this.setState({ extensions });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.modules !== nextProps.modules){
+      this.getExtensions();
+    }
   }
 
   onLoadMore() {
@@ -159,10 +175,9 @@ class ExplorerTransactionsV2 extends React.Component {
               tabName={this.props.t('Delegate')}
               delegate={this.props.delegate} />)
             : null}
-          <ProjectTab
-            tabClassName={'delegate-statistics'}
-            tabName={this.props.t('Projects')}
-            delegate={this.props.delegate} />
+          {
+            React.Children.toArray(this.state.extensions)
+          }
         </TabsContainer>
       </React.Fragment>
     );

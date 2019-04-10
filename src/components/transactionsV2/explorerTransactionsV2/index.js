@@ -9,6 +9,7 @@ import txFilters from '../../../constants/transactionFilters';
 
 /* istanbul ignore next */
 const mapStateToProps = (state, ownProps) => ({
+  modules: (state.extensions && state.extensions.modules) || {},
   delegate: state.search.delegates[state.search.lastSearch],
   transaction: state.transaction,
   transactions: state.search.searchResults,

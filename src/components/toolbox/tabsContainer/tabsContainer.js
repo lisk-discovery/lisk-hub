@@ -22,7 +22,8 @@ class TabsContainer extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   filterChildren(children) {
-    const _children = (Array.isArray(children) && children.filter(c => c)) || [children];
+    let _children = (Array.isArray(children) && children.filter(c => c)) || [children];
+    _children = [].concat.apply([], _children);
     return _children.filter(tab => !!tab.props.tabName);
   }
 

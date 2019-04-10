@@ -22,7 +22,7 @@ import fees from './../../constants/fees';
 import ShowMore from '../showMore';
 import { SecondaryButtonV2 } from '../toolbox/buttons/button';
 import Banner from '../toolbox/banner/banner';
-import ExtensionPoint from '../extensionPoint';
+import ExtensionPoint  from '../extensionPoint';
 import LiskHubExtensions from '../../utils/liskHubExtensions';
 
 import styles from './dashboard.css';
